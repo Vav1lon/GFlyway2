@@ -1,9 +1,9 @@
-includeTargets << new File("$gflyway2PluginDir/scripts/_FlywayInit.groovy")
+includeTargets << new File(gflyway2PluginDir, "scripts/_FlywayInit.groovy")
 
-target(main: "Flyway info") {
+target(flywayInfo: "Flyway info") {
     depends flywayInit
 
     flyway.info()
 }
 
-setDefaultTarget(main)
+setDefaultTarget(flywayInfo)

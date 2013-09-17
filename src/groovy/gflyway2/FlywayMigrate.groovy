@@ -10,7 +10,7 @@ class FlywayMigrate extends AbstractFlyway {
 
     @Override
     protected void doExecute(Flyway flyway) {
-        flyway.migrate();
+        flyway.migrate()
     }
 
 }

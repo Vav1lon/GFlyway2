@@ -26,7 +26,7 @@ abstract class AbstractFlyway {
     String sqlMigrationSuffix
     String validationErrorMode
 
-    protected AbstractFlyway(def config) {
+    protected AbstractFlyway(config) {
         this.config = config
         def props = System.properties
         dataSourceSuffix = flywayConfig("dataSourceSuffix", '', props).isEmpty() ? '' : "_${flywayConfig("dataSourceSuffix", '', props)}"
@@ -52,7 +52,7 @@ abstract class AbstractFlyway {
         validationErrorMode = flywayConfig("validationErrorMode", "FAIL")
     }
 
-    public void execute() {
+    void execute() {
         Flyway flyway = new Flyway()
         flyway.setDataSource(createDataSource())
         if (schemas != null) {
@@ -105,5 +105,4 @@ abstract class AbstractFlyway {
         println("schemas: $schemas")
         println '----------------------------------------'
     }
-
 }

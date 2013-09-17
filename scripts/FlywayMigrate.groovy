@@ -1,9 +1,9 @@
-includeTargets << new File("$gflyway2PluginDir/scripts/_FlywayInit.groovy")
+includeTargets << new File(gflyway2PluginDir, "scripts/_FlywayInit.groovy")
 
-target(main: "Flyway migrate") {
+target(flywayMigrate: "Flyway migrate") {
     depends flywayInit
 
     flyway.migrate()
 }
 
-setDefaultTarget(main)
+setDefaultTarget(flywayMigrate)
