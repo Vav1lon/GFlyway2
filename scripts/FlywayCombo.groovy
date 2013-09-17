@@ -1,6 +1,6 @@
-includeTargets << new File("$gflyway2PluginDir/scripts/_FlywayInit.groovy")
+includeTargets << new File(gflyway2PluginDir, "scripts/_FlywayInit.groovy")
 
-target(main: "Combo, step by step") {
+target(flywayCombo: "Combo, step by step") {
     depends flywayInit
 
     flyway.clean()
@@ -8,5 +8,4 @@ target(main: "Combo, step by step") {
     flyway.migrate()
 }
 
-setDefaultTarget(main)
-
+setDefaultTarget(flywayCombo)

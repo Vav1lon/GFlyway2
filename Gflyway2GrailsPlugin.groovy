@@ -2,41 +2,15 @@ class Gflyway2GrailsPlugin {
 
     def version = "0.2"
     def grailsVersion = "2.0 > *"
-    def pluginExcludes = [
-    ]
-
     def title = "Grails Flyway 2 Plugin"
-    def author = "Denis Kuzmin"
-    def authorEmail = "vavilon.rus@gmail.com"
-    def description = '''\
-    Plugin flyway 2 for use in Grails
-'''
-
-    def documentation = "http://grails.org/plugin/gflyway2-plugin"
+    def description = 'Adds support for Flyway 2'
+    def documentation = "http://grails.org/plugin/gflyway2"
     def license = "APACHE"
-
     def organization = [name: "Vav1lon", url: "http://www.vav1lon.com/"]
-    def developers = [[name: "Kuzmin Denis", email: "vavilon.rus@gmail.com"], [name: "Bulat Nigmatullin", email: ""]]
+    def developers = [
+        [name: "Denis Kuzmin", email: "vavilon.rus@gmail.com"],
+        [name: "Bulat Nigmatullin", email: ""]
+    ]
     def scm = [url: "https://github.com/Vav1lon/GFlyway2"]
-
-    def doWithWebDescriptor = { xml ->
-    }
-
-    def doWithSpring = {
-    }
-
-    def doWithDynamicMethods = { ctx ->
-    }
-
-    def doWithApplicationContext = { applicationContext ->
-    }
-
-    def onChange = { event ->
-    }
-
-    def onConfigChange = { event ->
-    }
-
-    def onShutdown = { event ->
-    }
+    def issueManagement = [system: "GITHUB", url: "https://github.com/Vav1lon/GFlyway2/issues"]
 }

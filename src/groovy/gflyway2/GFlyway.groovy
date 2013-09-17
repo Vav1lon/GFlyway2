@@ -4,34 +4,27 @@ class GFlyway {
 
     def config
 
-    public void clean() {
-        FlywayClean flyway = new FlywayClean(config)
-        flyway.execute()
+    void clean() {
+        new FlywayClean(config).execute()
     }
 
-    public void init() {
-        FlywayInit flyway = new FlywayInit(config)
-        flyway.execute()
+    void init() {
+        new FlywayInit(config).execute()
     }
 
-    public void migrate() {
-        FlywayMigrate flyway = new FlywayMigrate(config)
-        flyway.execute()
+    void migrate() {
+        new FlywayMigrate(config).execute()
     }
 
-    public void info() {
-        FlywayInfo flyway = new FlywayInfo(config)
-        flyway.execute()
+    void info() {
+        new FlywayInfo(config).execute()
     }
 
-    public void validate() {
-        FlywayValidate flyway = new FlywayValidate(config)
-        flyway.execute()
+    void validate() {
+        new FlywayValidate(config).execute()
     }
 
-    public void repair() {
-        FlywayValidate flyway = new FlywayValidate(config)
-        flyway.execute()
+    void repair() {
+        new FlywayValidate(config).execute()
     }
-
 }

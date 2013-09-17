@@ -4,9 +4,7 @@
 *.ids
 target
 *.class
-*/test/reports/html*
-*/test/reports/plain*
-*/test/reports/*
+*/test/reports
 */test-output/*
 *.log.*
 *.log
@@ -25,3 +23,4 @@ q
 atlassian-ide-plugin.xml
 *temp-war-dir*
 */plugin.xml
+*.zip

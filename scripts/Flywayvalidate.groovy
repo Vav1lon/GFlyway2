@@ -1,9 +1,9 @@
-includeTargets << new File("$gflyway2PluginDir/scripts/_FlywayInit.groovy")
+includeTargets << new File(gflyway2PluginDir, "scripts/_FlywayInit.groovy")
 
-target(main: "Flyway init") {
+target(flywayvalidate: "Flyway init") {
     depends flywayInit
 
     flyway.validate()
 }
 
-setDefaultTarget(main)
+setDefaultTarget(flywayvalidate)

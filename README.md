@@ -6,11 +6,11 @@ Plugin flyway 2 for use in Grails
 Installation
 -------------------------
 
-You need add this code to Config.groovy in section log4j 
+You need add this code to Config.groovy in section log4j
 
     appenders {
-            console name: 'stdout', layout: pattern(conversionPattern: '%m%n')
-        }
+        console name: 'stdout', layout: pattern(conversionPattern: '%m%n')
+    }
     info 'com.googlecode.flyway'
 
 
@@ -24,8 +24,8 @@ How to use
 -------------------------
 
     You must Grails command starts with 'flyway-'
-    
-    
+
+
 Allows you to use the basic commands:
  - clean (Drops all objects in the configured schemas)
  - init	(Creates and initializes the metadata table)
