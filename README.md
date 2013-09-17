@@ -23,7 +23,7 @@ By default you need add yours sql file to folder: grails-app/conf/db/migration/
 How to use
 -------------------------
 
-    You must Grails team starts with 'flyway-'
+    You must Grails command starts with 'flyway-'
     
     
 Allows you to use the basic commands:
