@@ -6,7 +6,7 @@ Plugin flyway 2 for use in Grails
 Installation
 -------------------------
 
-You need add this code to Config.groovy
+You need add this code to Config.groovy in section log4j 
 
     appenders {
             console name: 'stdout', layout: pattern(conversionPattern: '%m%n')
