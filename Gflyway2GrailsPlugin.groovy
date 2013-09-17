@@ -1,7 +1,7 @@
 class Gflyway2GrailsPlugin {
 
     def version = "0.2"
-    def grailsVersion = "2.2 > *"
+    def grailsVersion = "2.0 > *"
     def pluginExcludes = [
     ]
 
