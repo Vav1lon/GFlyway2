@@ -1,4 +1,5 @@
-GFlayway2
+GFlyway2
 =========
 
 Plugin flyway 2 for use in Grails
+
