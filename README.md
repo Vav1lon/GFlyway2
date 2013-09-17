@@ -4,6 +4,7 @@ GFlyway2
 Plugin flyway 2 for use in Grails
 
 Installation
+-------------------------
 
 You need add this code to Config.groovy
 
@@ -14,10 +15,17 @@ You need add this code to Config.groovy
 
 
 Configuration
+-------------------------
 
 By default you need add yours sql file to folder: grails-app/conf/db/migration/
 
 
+How to use
+-------------------------
+
+    You must Grails team starts with 'flyway-'
+    
+    
 Allows you to use the basic commands:
  - clean (Drops all objects in the configured schemas)
  - init	(Creates and initializes the metadata table)
@@ -30,7 +38,3 @@ Allows you to use the basic commands:
 
 Added a new command:
  - combo (executes the commands in sequence [clean, init, migrate])
-
-How to use
-
-    You must Grails team starts with 'flyway-'
