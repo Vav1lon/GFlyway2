@@ -27,14 +27,14 @@ How to use
 
 
 Basic commands:
- - clean (Drops all objects in the configured schemas)
- - init	(Creates and initializes the metadata table)
- - migrate (Migrates the database)
- - validate	(Validates the applied migrations against the ones available on the classpath)
- - info	(Prints the details and status information about all the migrations)
- - repair (Repairs the metadata table after a failed migration)
+ - flyway-clean (Drops all objects in the configured schemas)
+ - flyway-init	(Creates and initializes the metadata table)
+ - flyway-migrate (Migrates the database)
+ - flyway-validate	(Validates the applied migrations against the ones available on the classpath)
+ - flyway-info	(Prints the details and status information about all the migrations)
+ - flyway-repair (Repairs the metadata table after a failed migration)
 
     original site: http://flywaydb.org/documentation/commandline/
 
 Added a new command:
- - combo (executes [clean, init, migrate] commands)
+ - flyway-combo (executes [clean, init, migrate] commands)
