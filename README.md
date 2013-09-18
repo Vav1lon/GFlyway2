@@ -23,7 +23,7 @@ Configuration
 How to use
 -------------------------
 
-    You must start Grails with 'flyway-' argument
+    You must start in Grails console with 'flyway-' argument
 
 
 Basic commands:
