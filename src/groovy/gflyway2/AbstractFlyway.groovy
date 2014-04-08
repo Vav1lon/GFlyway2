@@ -40,6 +40,13 @@ abstract class AbstractFlyway {
         url = config."dataSource${dataSourceSuffix}".url
         user = config."dataSource${dataSourceSuffix}".username
         password = config."dataSource${dataSourceSuffix}".password
+
+        def codec = config."dataSource${dataSourceSuffix}".passwordEncryptionCodec
+
+        if (codec) {
+            password = codec.decode(password)
+        }
+
         schemas = flywayConfig("schemas", "public", props)
         table = flywayConfig("table")
 
