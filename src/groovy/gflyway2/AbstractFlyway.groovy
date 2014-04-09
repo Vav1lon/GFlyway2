@@ -25,6 +25,7 @@ abstract class AbstractFlyway {
     String sqlMigrationPrefix
     String sqlMigrationSuffix
     String validationErrorMode
+    boolean initOnMigrate
 
     protected AbstractFlyway(config) {
         this.config = config
@@ -57,6 +58,7 @@ abstract class AbstractFlyway {
         sqlMigrationPrefix = flywayConfig("sqlMigrationPrefix", "V")
         sqlMigrationSuffix = flywayConfig("sqlMigrationSuffix", ".sql")
         validationErrorMode = flywayConfig("validationErrorMode", "FAIL")
+        initOnMigrate = Boolean.valueOf(flywayConfig("initOnMigrate"))
     }
 
     void execute() {
@@ -82,6 +84,9 @@ abstract class AbstractFlyway {
         }
         if (validationErrorMode != null) {
             flyway.cleanOnValidationError = false
+        }
+        if (initOnMigrate != null) {
+            flyway.initOnMigrate = initOnMigrate
         }
 
         logConfig()
