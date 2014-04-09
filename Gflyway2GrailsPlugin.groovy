@@ -1,3 +1,5 @@
+import gflyway2.FlywayMigrate;
+
 class Gflyway2GrailsPlugin {
 
     def version = "0.2"
@@ -13,4 +15,16 @@ class Gflyway2GrailsPlugin {
     ]
     def scm = [url: "https://github.com/Vav1lon/GFlyway2"]
     def issueManagement = [system: "GITHUB", url: "https://github.com/Vav1lon/GFlyway2/issues"]
+
+    def loadAfter = [ "dataSource" ]
+    def loadBefore = [ "hibernate" ]
+
+    def doWithSpring = {
+        def config = application.config;
+        def confFlyway = config.grails.plugins.gflyway;
+
+        if (confFlyway.autoMigrate) {
+            new FlywayMigrate(config).execute();
+        }
+    }
 }
