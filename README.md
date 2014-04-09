@@ -17,7 +17,19 @@ You need to modify Config.groovy configuration file by adding in section log4j n
 Configuration
 -------------------------
 
- By default you should put your sql file into this folder: grails-app/conf/db/migration/
+By default you should put your sql file into this folder: grails-app/conf/db/migration/
+
+It's possible to configure Flyway using Config.groovy. The code below show you which variables are availables.
+
+		grails.plugins.gflyway.initOnMigrate = true;
+		grails.plugins.gflyway.schemas = "public"
+		grails.plugins.gflyway.table = "schema_version"
+		grails.plugins.gflyway.locations = "db/migration"
+		grails.plugins.gflyway.encoding = "UTF-8"
+		grails.plugins.gflyway.sqlMigrationPrefix = "V"
+		grails.plugins.gflyway.sqlMigrationSuffix = ".sql"
+		grails.plugins.gflyway.validationErrorMode = "FAIL"
+		grails.plugins.gflyway.autoMigrate = true;
 
 
 How to use
