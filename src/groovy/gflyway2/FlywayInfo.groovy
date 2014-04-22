@@ -1,7 +1,8 @@
 package gflyway2
 
-import com.googlecode.flyway.core.Flyway
-import com.googlecode.flyway.core.info.MigrationInfoDumper
+import org.flywaydb.core.Flyway
+import org.flywaydb.core.internal.info.MigrationInfoDumper
+
 
 class FlywayInfo extends AbstractFlyway {
 

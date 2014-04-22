@@ -1,6 +1,7 @@
 package gflyway2
-import com.googlecode.flyway.core.Flyway
-import com.googlecode.flyway.core.api.MigrationVersion
+
+import org.flywaydb.core.Flyway
+import org.flywaydb.core.api.MigrationVersion
 
 class FlywayInit extends AbstractFlyway {
 

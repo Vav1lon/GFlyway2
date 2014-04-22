@@ -4,9 +4,9 @@ log4j = {
     }
 
     error 'org.codehaus.groovy.grails',
-          'org.springframework',
-          'org.hibernate',
-          'net.sf.ehcache.hibernate'
+            'org.springframework',
+            'org.hibernate',
+            'net.sf.ehcache.hibernate'
 
-    info 'com.googlecode.flyway'
+    info 'org.flywaydb'
 }

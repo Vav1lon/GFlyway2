@@ -14,7 +14,7 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        compile 'com.googlecode.flyway:flyway-core:2.3.1'
+        compile 'org.flywaydb:flyway-core:3.0'
     }
 
     plugins {

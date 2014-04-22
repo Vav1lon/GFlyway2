@@ -1,6 +1,6 @@
 package gflyway2
 
-import com.googlecode.flyway.core.Flyway
+import org.flywaydb.core.Flyway
 
 class FlywayValidate extends AbstractFlyway {
 

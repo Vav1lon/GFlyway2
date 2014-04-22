@@ -1,9 +1,8 @@
 package gflyway2
 
-import com.googlecode.flyway.core.Flyway
-import com.googlecode.flyway.core.util.StringUtils
-import com.googlecode.flyway.core.util.jdbc.DriverDataSource
 import grails.util.Environment
+import org.flywaydb.core.Flyway
+import org.flywaydb.core.internal.util.jdbc.DriverDataSource
 
 abstract class AbstractFlyway {
 
