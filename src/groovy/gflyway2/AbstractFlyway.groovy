@@ -2,6 +2,7 @@ package gflyway2
 
 import grails.util.Environment
 import org.flywaydb.core.Flyway
+import org.flywaydb.core.internal.util.StringUtils
 import org.flywaydb.core.internal.util.jdbc.DriverDataSource
 
 abstract class AbstractFlyway {
@@ -102,10 +103,11 @@ abstract class AbstractFlyway {
     }
 
     private createDataSource() throws Exception {
-        new DriverDataSource(driver, url, user, password)
+        new DriverDataSource(Thread.currentThread().getContextClassLoader(), driver, url, user, password)
     }
 
     private void logConfig() {
+        println ''
         println '----------------------------------------'
         println("Current config:")
         println("baseDir: ${baseDir}")
