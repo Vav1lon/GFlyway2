@@ -11,7 +11,7 @@ You need to modify Config.groovy configuration file by adding in section log4j n
     appenders {
         console name: 'stdout', layout: pattern(conversionPattern: '%m%n')
     }
-    info 'com.googlecode.flyway'
+    info 'org.flywaydb'
 
 
 Configuration
