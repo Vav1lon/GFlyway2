@@ -26,6 +26,7 @@ abstract class AbstractFlyway {
     String sqlMigrationSuffix
     String validationErrorMode
     boolean initOnMigrate
+    Map placehodelrs
 
     protected AbstractFlyway(config) {
         this.config = config
@@ -59,6 +60,8 @@ abstract class AbstractFlyway {
         sqlMigrationSuffix = flywayConfig("sqlMigrationSuffix", ".sql")
         validationErrorMode = flywayConfig("validationErrorMode", "FAIL")
         initOnMigrate = Boolean.valueOf(flywayConfig("initOnMigrate"))
+        placehodelrs = config.grails.plugins.gflyway.placeholders ?: [:]
+
     }
 
     void execute() {
@@ -88,7 +91,9 @@ abstract class AbstractFlyway {
         if (initOnMigrate != null) {
             flyway.initOnMigrate = initOnMigrate
         }
-
+        if (placehodelrs){
+            flyway.setPlaceholders(placehodelrs)
+        }
         logConfig()
         doExecute(flyway)
     }
