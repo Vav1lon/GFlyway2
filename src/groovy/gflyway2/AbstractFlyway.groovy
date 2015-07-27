@@ -5,6 +5,11 @@ import org.flywaydb.core.Flyway
 import org.flywaydb.core.internal.util.StringUtils
 import org.flywaydb.core.internal.util.jdbc.DriverDataSource
 
+import java.sql.*
+import javax.naming.*
+import javax.sql.*
+
+
 abstract class AbstractFlyway {
 
     def config
@@ -15,6 +20,7 @@ abstract class AbstractFlyway {
     String password
     String schemas
     String table
+    String jndiDataSource
 
     String dataSourceSuffix
 
@@ -42,6 +48,7 @@ abstract class AbstractFlyway {
         url = config."dataSource${dataSourceSuffix}".url
         user = config."dataSource${dataSourceSuffix}".username
         password = config."dataSource${dataSourceSuffix}".password
+        jndiDataSource = config."dataSource${dataSourceSuffix}".jndiName
 
         def codec = config."dataSource${dataSourceSuffix}".passwordEncryptionCodec
 
@@ -108,7 +115,24 @@ abstract class AbstractFlyway {
     }
 
     private createDataSource() throws Exception {
-        new DriverDataSource(Thread.currentThread().getContextClassLoader(), driver, url, user, password)
+        if (jndiDataSource?.size()==0 || jndiDataSource == null || jndiDataSource == '[:]'){
+            new DriverDataSource(Thread.currentThread().getContextClassLoader(), driver, url, user, password)
+        } else {
+            loadJNDIConfig()
+        }
+    }
+
+    private DataSource loadJNDIConfig(){
+        def DATASOURCE_CONTEXT = "${jndiDataSource}"
+        Context initialContext = new InitialContext()
+        if (!initialContext){
+            throw new Exception("Cannot get InitialContext.")
+        }
+        DataSource ds = (DataSource)initialContext.lookup(DATASOURCE_CONTEXT)
+        if (!ds) {
+            throw new Exception("Failed to lookup datasource with name: ${jndiDataSource}")
+        }
+        return ds
     }
 
     private void logConfig() {
@@ -118,9 +142,10 @@ abstract class AbstractFlyway {
         println("baseDir: ${baseDir}")
         println("env: ${Environment.current}")
         println("dataSource: ${this.dataSourceSuffix.isEmpty() ? 'default' : 'dataSource' + this.dataSourceSuffix}")
-        println("url: $url")
-        println("username: $user")
-        println("schemas: $schemas")
+        println("jndiDataSource: ${jndiDataSource}")
+        println("url: ${url}")
+        println("username: ${user}")
+        println("schemas: ${schemas}")
         println '----------------------------------------'
     }
 }
